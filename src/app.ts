@@ -7,6 +7,8 @@ import { healthRouter } from "./routes/health.route";
 import { notFound } from "./middlewares/notFound";
 import { errorHandler } from "./middlewares/errorHandler";
 import { authRouter } from "./routes/auth.route";
+import { ticketsRouter } from "./routes/tickets.route";
+import { adminRouter } from "./routes/admin.route";
 
 
 export const app = express();
@@ -20,6 +22,9 @@ app.use(morgan("dev"));
 app.use("/health", healthRouter);
 app.use("/auth", authRouter);
 
+
+app.use("/tickets", ticketsRouter);
+app.use("/admin", adminRouter);
 
 // 404 + error handler
 app.use(notFound);
